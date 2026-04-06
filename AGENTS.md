@@ -32,6 +32,13 @@ Assisted-by: Claude <noreply@anthropic.com>
 - [ ] Owning SIG and Participating SIGs are correct
 - [ ] Document Conventions defines only feature-specific terms, not standard ones
   (VM, PVC, CDI, etc. are known to all reviewers — do not define them)
+- [ ] Reviewer should follow Enhancement, Feature Tracking, and Epic Jira links
+  and verify:
+  - Requirements and user stories in the STP align with Jira
+  - Acceptance criteria cover the Jira-defined scope
+  - No child epics or stories are missed
+- [ ] If GitHub links (VEPs, design docs) are referenced, verify the STP
+  content is consistent with those sources
 
 ### Feature Overview
 
