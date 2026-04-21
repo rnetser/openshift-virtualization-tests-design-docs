@@ -36,7 +36,7 @@
 ### **Feature Overview**
 
 <!-- Provide a brief (2-8 sentences) description of the feature being tested.
-Include: what it does, why it matters to customers, and key technical components.
+Include: what it does, why it matters to customers, and the user-visible lifecycle context.
 If the feature spans multiple releases (e.g., Tech Preview → GA), state the current phase
 and how the test scope for this STP relates to that phase. -->
 
