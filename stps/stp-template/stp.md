@@ -8,17 +8,18 @@
 - **Feature Tracking:** [Link to the relevant feature in Jira]
 - **Epic Tracking:** [Link to the tracking Jira Epic]
   <!-- Tasks must be created to block the feature -->
-- **Feature Maturity:** [Current phase and roadmap]
-  <!-- Specify the feature's current maturity phase and planned lifecycle:
-  - Current phase: Dev Preview, Tech Preview, or GA
-  - Target version for current phase (e.g., "Tech Preview in 4.22")
-  - Planned progression (e.g., "GA targeted for 4.23")
-  - Support termination plans, if known (e.g., "RHCOS 9 support ends in 4.25")
+- **Feature Maturity:**
+  <!-- List each maturity phase with its target version. Use N/A for phases that don't apply.
+  Standard phases: Dev Preview (DP), Tech Preview (TP), General Availability (GA).
+  For features already GA with no prior phases, only list GA.
 
-  Examples:
-  - "4.21 - DP, 4.22 - TP, 5.0 - GA"
-  - "GA in 4.22. No planned deprecation."
-  - "GA in 4.20. RHCOS 9 support planned for removal in 4.25." -->
+  Example:
+  - DP: N/A
+  - TP: 4.22
+  - GA: 5.0 -->
+  - DP: [version or N/A]
+  - TP: [version or N/A]
+  - GA: [version]
 - **QE Owner(s):** [Name(s)]
 - **Owning SIG:** [sig-xyz]
 - **Participating SIGs:** [List of participating SIGs]
