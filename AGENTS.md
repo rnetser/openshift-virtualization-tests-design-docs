@@ -202,13 +202,15 @@ Assisted-by: Claude <noreply@anthropic.com>
 - [ ] ALL 7 risk categories are addressed (even if N/A with justification):
   Timeline/Schedule, Test Coverage, Test Environment, Untestable Aspects,
   Resource Constraints, Dependencies, Other
-- [ ] Each risk has: Risk description, Mitigation strategy, Sign-off
-- [ ] N/A risks have brief justification (not just "N/A")
+- [ ] When a risk exists: full entry required — Risk description, Mitigation strategy, Sign-off
+- [ ] When no risk exists: only Mitigation is required, with a brief justification of why there
+  is no risk (not just "N/A"); no Sign-off or other category-specific fields are needed
 - [ ] Mitigations are specific and actionable (not "we will address this")
 
 **Common rejection reasons:**
 - All risks marked N/A (unrealistic — every feature has some risk)
-- Missing sign-off fields on risk entries
+- Missing sign-off on risk entries where a real risk is described
+- Mitigation says "N/A" without explaining why no mitigation is needed
 - Vague mitigations without specific actions
 - Missing risk categories entirely
 
