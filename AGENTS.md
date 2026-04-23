@@ -199,9 +199,10 @@ Assisted-by: Claude <noreply@anthropic.com>
 
 ### II.5 — Risks
 
-- [ ] ALL 7 risk categories are addressed (even if N/A with justification):
+- [ ] ALL 6 standard risk categories are addressed (even if no risk, include Mitigation with brief justification):
   Timeline/Schedule, Test Coverage, Test Environment, Untestable Aspects,
-  Resource Constraints, Dependencies, Other
+  Resource Constraints, Dependencies
+- [ ] "Other" category is included only if risks exist that don't fit the 6 standard categories above
 - [ ] When a risk exists: full entry required — Risk description, Mitigation strategy, Sign-off
 - [ ] When no risk exists: only Mitigation is required, with a brief justification of why there
   is no risk (not just "N/A"); no Sign-off or other category-specific fields are needed
