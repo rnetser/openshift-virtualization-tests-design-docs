@@ -11,6 +11,14 @@
 - **QE Owner(s):** [Name(s)]
 - **Owning SIG:** [sig-xyz]
 - **Participating SIGs:** [List of participating SIGs]
+- **Child STPs:** [List child STPs with links, or remove this field for single-SIG features]
+  <!-- For parent STPs in multi-SIG features only: list all child STPs in the feature directory.
+  Remove this field for single-SIG features and child STPs.
+
+  Example:
+  - [sig-network](./network.md)
+  - [sig-storage](./storage.md)
+  - [sig-virt](./virt.md) -->
 
 **Document Conventions (if applicable):** [Define acronyms or terms specific to this document]
 

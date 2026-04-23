@@ -245,6 +245,48 @@ When an STP spans multiple SIGs:
 - Each SIG's regression responsibility must be explicitly documented
 - Cross-SIG test scenarios (e.g., cross-architecture VM connectivity) must have a clear owner
 
+### Directory Structure
+
+Multi-SIG features use a **feature directory** under the owning SIG:
+
+```text
+stps/<owning-sig>/<feature-name>/
+├── stp.md              ← parent STP (owned by the feature's primary SIG)
+├── <sig-name>.md       ← child STP per participating SIG
+└── ...
+```
+
+Example — multi-arch feature owned by sig-iuo with 4 participating SIGs:
+
+```text
+stps/sig-iuo/multiarch/
+├── stp.md
+├── network.md
+├── storage.md
+├── virt.md
+└── infra.md
+```
+
+**Rules:**
+
+- The parent STP (`stp.md`) defines the overall scope, requirements, and acceptance criteria
+- Each child STP covers only the participating SIG's test scope — goals, scenarios, and risks
+  specific to that SIG
+- Child STPs reference the parent for shared context (Feature Overview, requirements, acceptance
+  criteria) — they do NOT repeat it
+- The feature directory may include an `OWNERS` file listing reviewers from all participating SIGs
+- Single-SIG features do NOT use a feature directory — place the STP directly under `stps/<sig>/`
+
+### Child STP Review Checklist
+
+- [ ] Parent STP lists all child STPs in the feature directory with links
+- [ ] Child STP does NOT duplicate Feature Overview, requirements, or acceptance criteria from parent
+- [ ] Child STP defines only the participating SIG's test scope, scenarios, and risks
+- [ ] When a child STP is added to a feature directory that already has a parent STP,
+  verify the parent is updated to include the new child
+- [ ] When a parent STP is added to a feature directory that already contains child STPs,
+  verify the parent lists all existing children
+
 ---
 
 ## Content Quality Rules
