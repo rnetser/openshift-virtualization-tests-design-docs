@@ -44,6 +44,10 @@ stps/<owning-sig>/<feature-name>/
 **Child STPs** — define SIG-specific testing goals, scenarios, strategy, and risks. They reference
 the parent for shared context and do NOT duplicate it.
 
+For child STPs, use the dedicated template: [`stps/stp-template/child-stp.md`](../stps/stp-template/child-stp.md).
+The child template omits sections owned by the parent (Feature Overview, Feature Maturity, Enhancement links)
+and adds a `Parent STP` link for traceability.
+
 Single-SIG features place the STP directly under `stps/<sig>/` without a feature directory.
 
 ### I. Motivation and Requirements Review
