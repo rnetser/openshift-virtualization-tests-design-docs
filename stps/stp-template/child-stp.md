@@ -65,7 +65,7 @@ If none, state: "None — reviewed and confirmed with [Name/Date]." -->
   - *Impact on testing approach:* [Impact on this SIG's tests]
 
 - [x] **API Extensions**
-  - *List new or modified APIs:* [SIG-specific APIs, or "None — see parent STP"]
+  - *List new or modified user-facing APIs:* [SIG-specific APIs, or "None — see parent STP"]
   - *Testing impact:* [Impact]
 
 - [x] **Test Environment Needs**
@@ -86,6 +86,7 @@ Order by priority: P0 first, then P1, then P2. -->
 
 - **[P0]** [SIG-specific testing goal]
 - **[P1]** [SIG-specific testing goal]
+- **[P2]** [SIG-specific testing goal]
 
 **Out of Scope (Testing Scope Exclusions)**
 
@@ -169,7 +170,7 @@ uncheck and state "Covered by parent STP" or "Covered by [SIG name]". -->
 
 #### **4. Risks**
 
-<!-- List only SIG-specific risks. Feature-wide risks belong in the parent STP. 
+<!-- List only SIG-specific risks. Feature-wide risks belong in the parent STP.
 Include only categories where this SIG has a specific risk — omit categories with no SIG-specific risk. -->
 
 **[Risk Category]**
@@ -186,8 +187,9 @@ Include only categories where this SIG has a specific risk — omit categories w
 <!-- List only this SIG's test scenarios. Each scenario must trace to a Jira requirement. -->
 
 - **[Jira-ID]** — As a [role], I want [action] so that [benefit]
-  - *Test Scenario:* [Tier N] [Description]
-  - *Priority:* P0
+  - *Test Scenario:* [Description]
+  - *Tier:* [1 or 2]
+  - *Priority:* [P0/P1/P2]
 
 ---
 
@@ -198,4 +200,6 @@ This Software Test Plan requires approval from the following stakeholders:
 * **Reviewers:**
   - [Name / @github-handle]
 * **Approvers:**
-  - [Name / @github-handle]
+  - [QE Lead Name / @github-handle]
+  - [PM Name / @github-handle]
+  - [Dev Lead Name / @github-handle]
