@@ -32,12 +32,12 @@ acceptance criteria, and NFRs are defined in the parent STP. -->
 #### **1. SIG-Specific Requirements**
 
 - [x] **Review Requirements**
-  - *SIG-specific requirements:* [List requirements from the parent that this SIG owns or extends]
+  - *SIG-specific requirements (Jira IDs this SIG covers):* [List Jira IDs from the parent that this SIG owns, or "None — see parent STP"]
 
 - [x] **SIG-Specific Acceptance Criteria**
-  <!-- Only list acceptance criteria that are specific to this SIG's scope.
-  Feature-wide acceptance criteria belong in the parent STP. -->
-  - [List SIG-specific acceptance criteria]
+  <!-- Only list acceptance criteria NEW to this SIG's scope.
+  Do NOT duplicate parent acceptance criteria — reference them by Jira ID instead. -->
+  - [List SIG-specific acceptance criteria not already in the parent, or "None — all covered by parent STP"]
 
 - [x] **Testability**
   - *Note any SIG-specific requirements that are unclear or untestable:* [List or "None"]
@@ -135,7 +135,7 @@ uncheck and state "Covered by parent STP" or "Covered by [SIG name]". -->
   - *Details:* [SIG-specific, or "Covered by parent STP"]
 
 - [ ] **Monitoring**
-  - *Details:* [SIG-specific, or "Covered by parent STP"]
+  - *Details:* [SIG-specific; state whether alerts/metrics are required, or "Covered by parent STP"]
 
 **Integration & Compatibility**
 
@@ -184,7 +184,8 @@ Include only categories where this SIG has a specific risk — omit categories w
 
 ### **III. Test Scenarios & Traceability**
 
-<!-- List only this SIG's test scenarios. Each scenario must trace to a Jira requirement. -->
+<!-- List only this SIG's NEW test scenarios. Each scenario must trace to a Jira requirement.
+Regression tests are documented in Test Strategy (II.2), not in this table. -->
 
 - **[Jira-ID]** — As a [role], I want [action] so that [benefit]
   - *Test Scenario:* [Description]
