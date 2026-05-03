@@ -7,8 +7,7 @@
 - **Feature Tracking:** [Link to the relevant feature in Jira]
 - **Epic Tracking:** [Link to the SIG-specific tracking Jira Epic, if separate from the parent]
 - **QE Owner(s):** [Name (@github-handle, email)]
-- **Owning SIG:** [The SIG that owns the feature and the parent STP]
-- **Participating SIG:** [This SIG — the one this child STP covers]
+- **SIG:** [This SIG — the one this child STP covers]
 
 **Document Conventions (if applicable):** [Define terms specific to this SIG's scope only]
 
@@ -17,8 +16,7 @@
 <!-- In child STPs: describe this SIG's scope within the parent feature.
 Do NOT repeat the parent's Feature Overview. -->
 
-[Describe what this SIG covers and why it's a separate scope.]
-See the parent STP (`stp.md`) for the full Feature Overview, requirements, and acceptance criteria.
+[Describe what this SIG covers within the feature and why it requires separate test planning.]
 
 ---
 
@@ -30,12 +28,11 @@ Feature-wide requirements, acceptance criteria, and NFRs are defined in the pare
 #### **1. Requirement & User Story Review Checklist**
 
 - [x] **Review Requirements**
-  - *SIG-specific requirements (Jira IDs this SIG covers):* [List Jira IDs from the parent that this SIG owns, or "None — see parent STP"]
+  - *SIG-specific requirements:* [List requirements this SIG owns, or "None — all requirements are in the parent STP"]
 
-- [x] **SIG-Specific Acceptance Criteria**
-  <!-- Only list acceptance criteria NEW to this SIG's scope.
-  Do NOT duplicate parent acceptance criteria — reference them by Jira ID instead. -->
-  - [List SIG-specific acceptance criteria not already in the parent, or "None — all covered by parent STP"]
+- [x] **Acceptance Criteria**
+  <!-- Only list acceptance criteria specific to this SIG's scope. -->
+  - [List SIG-specific acceptance criteria, or "None — all acceptance criteria are in the parent STP"]
 
 - [x] **Testability**
   - *Note any SIG-specific requirements that are unclear or untestable:* [List or "None"]
@@ -63,7 +60,9 @@ If none, state: "None — reviewed and confirmed with [Name/Date]." -->
   - *Impact on testing approach:* [Impact on this SIG's tests]
 
 - [x] **API Extensions**
-  - *List new or modified user-facing APIs:* [SIG-specific APIs, or "None — see parent STP"]
+  <!-- New APIs belong in the parent STP. List here only if this SIG tests existing APIs
+  in a SIG-specific way, otherwise state "N/A — see parent STP". -->
+  - *List new or modified user-facing APIs:* [SIG-specific, or "N/A — see parent STP"]
   - *Testing impact:* [Impact]
 
 - [x] **Test Environment Needs**
