@@ -12,24 +12,22 @@
 
 **Document Conventions (if applicable):** [Define terms specific to this SIG's scope only]
 
-### **SIG Scope**
+### **Feature Overview**
 
-<!-- 2-4 sentences. State what this SIG is responsible for testing within the parent feature.
-Do NOT repeat the Feature Overview from the parent — reference it instead. -->
+<!-- In child STPs: describe this SIG's scope within the parent feature.
+Do NOT repeat the parent's Feature Overview. -->
 
-This STP covers [SIG name]'s test scope for [feature name].
-See the parent STP for the full Feature Overview, requirements, and acceptance criteria.
-
-[Briefly describe what this SIG tests and why it's a separate scope.]
+[Describe what this SIG covers and why it's a separate scope.]
+See the parent STP (`stp.md`) for the full Feature Overview, requirements, and acceptance criteria.
 
 ---
 
-### **I. SIG-Specific Review**
+### **I. Motivation and Requirements Review (QE Review Guidelines)**
 
-<!-- This section covers only SIG-specific review items. Feature-wide requirements,
-acceptance criteria, and NFRs are defined in the parent STP. -->
+<!-- In child STPs: this section covers only SIG-specific review items.
+Feature-wide requirements, acceptance criteria, and NFRs are defined in the parent STP. -->
 
-#### **1. SIG-Specific Requirements**
+#### **1. Requirement & User Story Review Checklist**
 
 - [x] **Review Requirements**
   - *SIG-specific requirements (Jira IDs this SIG covers):* [List Jira IDs from the parent that this SIG owns, or "None — see parent STP"]
@@ -168,7 +166,11 @@ uncheck and state "Covered by parent STP" or "Covered by [SIG name]". -->
 
 - **Other Tools:** N/A
 
-#### **4. Risks**
+#### **4. Entry Criteria**
+
+<!-- Covered by the parent STP. Add SIG-specific entry criteria only if needed. -->
+
+#### **5. Risks**
 
 <!-- List only SIG-specific risks. Feature-wide risks belong in the parent STP.
 Include only categories where this SIG has a specific risk — omit categories with no SIG-specific risk. -->
