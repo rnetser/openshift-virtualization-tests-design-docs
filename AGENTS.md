@@ -289,6 +289,7 @@ stps/sig-iuo/multiarch/
 - The parent STP (`stp.md`) defines the overall scope, requirements, and acceptance criteria
 - Each child STP covers only the participating SIG's test scope — goals, scenarios, and risks
   specific to that SIG
+- Child STPs should follow the child STP template (`stps/stp-template/child-stp.md`)
 - Child STPs reference the parent for shared context (Feature Overview, requirements, acceptance
   criteria) — they do NOT repeat it
 - The feature directory may include an `OWNERS` file listing reviewers from all participating SIGs
@@ -297,6 +298,7 @@ stps/sig-iuo/multiarch/
 ### Child STP Review Checklist
 
 - [ ] Parent STP lists all child STPs in the feature directory with links
+- [ ] Child STP follows the child STP template (`stps/stp-template/child-stp.md`)
 - [ ] Child STP does NOT duplicate Feature Overview, requirements, or acceptance criteria from parent
 - [ ] Child STP defines only the participating SIG's test scope, scenarios, and risks
 - [ ] When a child STP is added to a feature directory that already has a parent STP,
