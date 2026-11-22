@@ -34,27 +34,34 @@ Feature-wide requirements, acceptance criteria, and NFRs are defined in the pare
 #### **1. Requirement & User Story Review Checklist**
 
 - [ ] **Review Requirements**
-  - *SIG-specific requirements:* [List requirements this SIG owns, or "None — all requirements are in the parent STP"]
+  <!-- List the requirements this SIG owns, or "None — all requirements are in the parent STP".
+  A requirement states a behavior and the condition it must hold under, so a test can pass or fail
+  on it. Repeat the line per requirement — content lines, not new fields. -->
+  - [SIG-specific requirement, or "None — all requirements are in the parent STP"]
 
 - [ ] **Acceptance Criteria**
-  <!-- Only list acceptance criteria specific to this SIG's scope. -->
-  - [List SIG-specific acceptance criteria, or "None — all acceptance criteria are in the parent STP"]
+  <!-- Only list acceptance criteria specific to this SIG's scope, each an observable pass/fail
+  condition. Repeat the line per criterion. -->
+  - [SIG-specific acceptance criterion, or "None — all acceptance criteria are in the parent STP"]
 
 - [ ] **Testability**
-  - *Note any SIG-specific requirements that are unclear or untestable:* [List or "None"]
+  <!-- Any SIG-specific requirement that is unclear, ambiguous, or untestable — and why. -->
+  - [Unclear or untestable SIG-specific requirement, or "None"]
 
 - [ ] **Non-Functional Requirements (NFRs)**
-  <!-- Only list NFRs specific to this SIG's scope. If all NFRs are covered by the parent, state that. -->
-  - *SIG-specific NFRs:* [List or "None — all NFRs are covered by the parent STP"]
-  - *NFRs not covered and why:* [List with justification]
+  <!-- Only list NFRs specific to this SIG's scope. If all NFRs are covered by the parent, state
+  that. Repeat the first line once per NFR, and fill the second once — these are content lines, not
+  new fields. -->
+  - [SIG-specific NFR and its target, or "None — all NFRs are covered by the parent STP"]
+  - [SIG-specific NFR not covered and why, or "None"]
 
 #### **2. Feature Limitations**
 
 <!-- List only SIG-specific limitations. Feature-wide limitations belong in the parent STP.
-If none, state: "None — reviewed and confirmed with [Name/Date]." -->
+If none, state "None — reviewed and confirmed with [Name]." and keep the `*Sign-off:*` line. -->
 
 - **[SIG-specific limitation]**
-  - *Sign-off:* [Name/Date]
+  - *Sign-off:* [Name]
 
 #### **3. Technology and Design Review**
 
@@ -62,20 +69,22 @@ If none, state: "None — reviewed and confirmed with [Name/Date]." -->
   - *Key takeaways and concerns:* [SIG-specific technical concerns]
 
 - [ ] **Technology Challenges**
-  - *List identified challenges:* [SIG-specific challenges]
+  <!-- The SIG-specific technical challenges, and their impact on how this SIG tests the feature. -->
+  - [SIG-specific testing challenge]
   - *Impact on testing approach:* [Impact on this SIG's tests]
 
 - [ ] **API Extensions**
   <!-- New APIs belong in the parent STP. List here only if this SIG tests existing APIs
   in a SIG-specific way, otherwise state "N/A — see parent STP". -->
-  - *List new or modified user-facing APIs:* [SIG-specific, or "N/A — see parent STP"]
+  - [SIG-specific testing of an existing user-facing API, or "N/A — see parent STP"]
   - *Testing impact:* [Impact]
 
 - [ ] **Test Environment Needs**
   - *See environment requirements in Section II.3 and testing tools in Section II.3.1*
 
 - [ ] **Topology Considerations**
-  - *Describe topology requirements:* [SIG-specific topology needs]
+  <!-- Cluster and network topology the SIG needs — not internal resource creation. -->
+  - [SIG-specific topology requirement]
   - *Impact on test design:* [Impact]
 
 ### **II. Software Test Plan (STP)**

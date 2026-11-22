@@ -74,9 +74,15 @@ rather than requiring it.
 
 ### I.1 — Requirement & User Story Review
 
-- [ ] All checklist items have checkboxes marked `[x]` with content filled in
-- [ ] Requirements are listed as specific, testable items — not a repetition of the Feature Overview
-- [ ] Customer use cases are in user story format ("As a [role], I want to [action]")
+- [ ] All checklist items have checkboxes marked `[x]` with content filled in, or are left `[ ]`
+  with the reason recorded in the item's own lines (as the template instructs)
+- [ ] Requirements are specific and testable — each names a behavior **and** the condition it must
+  hold under, and does not repeat the Feature Overview ("Support migration" is not a requirement)
+- [ ] *Value* states the customer cost of *not* having the feature (broken workflow, unmet SLA,
+  paid-for workaround) — not a list of product capabilities
+- [ ] Customer use cases are in user story format ("As a [role], I want [action], so that [benefit]")
+- [ ] Use cases name a concrete role a customer would recognize (VM owner, cluster admin, SRE),
+  not a generic "user", and each maps to a Section III scenario
 - [ ] Acceptance criteria are individual list items — each is a specific, verifiable pass/fail condition
 - [ ] Acceptance criteria describe observable user outcomes, not internal system behavior
 - [ ] For features claiming seamless or non-disruptive behavior, acceptance criteria must include
@@ -101,6 +107,10 @@ rather than requiring it.
 - Acceptance criteria for seamless/non-disruptive features only verify end-state — a disrupt-then-restore
   sequence would produce the same passing result
 - Requirements repeat the feature overview instead of listing actual D/S Jira requirements
+- Requirements are one generic sentence that could describe any feature, with no behavior and no
+  condition to test against
+- *Value* or use cases list product capabilities instead of customer consequence, or use cases are
+  written for an unnamed "user" and trace to no scenario
 - NFRs section says "N/A" without explaining why each NFR category doesn't apply
 - Scalability NFR dismissed as "no new requirements" when the feature depends on a mechanism with
   existing cluster-level scale limits
@@ -108,9 +118,9 @@ rather than requiring it.
 
 ### I.2 — Feature Limitations
 
-- [ ] Each limitation has a sign-off: `*Sign-off:* [Name/Date]`
+- [ ] Each limitation has a sign-off: `*Sign-off:* [Name]`
 - [ ] Limitations are constraints (not scope decisions)
-- [ ] If no limitations: "None — reviewed and confirmed with [Name/Date]"
+- [ ] If no limitations: "None — reviewed and confirmed with [Name]"
 - [ ] Open bugs that affect the feature are listed with Jira links
 
 **Common rejection reasons:**

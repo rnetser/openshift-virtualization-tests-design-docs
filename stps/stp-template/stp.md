@@ -64,34 +64,75 @@ before testing starts, so reviewers should check it against their own understand
 #### **1. Requirement & User Story Review Checklist**
 
 <!-- **How to complete this checklist:**
-1. **Checkbox**: Mark [x] if the check is complete; if the item cannot be checked - add an explanation why in the `details` section
+1. **Checkbox**: Mark [x] if the check is complete; if the item cannot be checked - explain why in the item's own lines
 2. Complete the relevant, needed details for the checklist item -->
 
 - [ ] **Review Requirements**
-  <!-- Review the D/S (Downstream) requirements as defined in Jira. Understand the difference between Upstream (U/S) and D/S requirements.
-  Example: "VMs must migrate without network downtime exceeding the defined threshold during node maintenance." -->
-  - *List the key D/S requirements reviewed:* [Summarize requirements here]
+  <!-- Requirements are the D/S (downstream) commitments this release has to meet, as defined in
+  Jira. Separate U/S (upstream / VEP) scope from the D/S commitment.
+
+  A requirement states a **behavior** and the **condition it must hold under**, so that a test can
+  pass or fail on it. One requirement per bullet.
+  - Weak: "Support live migration." — no behavior, no condition, nothing to verify
+  - Strong: "VMs must migrate without network downtime exceeding the defined threshold during node
+    maintenance."
+  - Strong: "A VM whose guest agent is unavailable keeps running while its liveness probe is
+    paused by the user."
+
+  Do not restate the Feature Overview, and do not describe how the product implements it.
+  Repeat the bullet below for each requirement — these are content lines, not new fields. -->
+  - [Requirement — behavior and the condition it must hold under]
 
 - [ ] **Understand Value and Customer Use Cases**
-  <!-- Understand why the feature matters to customers from a D/S perspective and what the real-world use cases are.
-  Example: "Customers need to migrate VMs without network downtime to maintain SLA compliance during node maintenance." -->
-  - *Describe the feature's value to customers:* [Describe the customer value here]
-  - *List the customer use cases identified:* [List use cases here]
+  <!-- Two different things, both required:
+
+  **Value** — the customer cost of *not* having the feature: the workflow that breaks, the SLA that
+  cannot be met, the workaround customers pay for today. Not a restatement of the requirement, and
+  not a list of product capabilities.
+  Example: "Node maintenance forces VMs offline, so customers schedule outages and break their
+  availability SLAs."
+
+  **Use cases** — who does what, and to what end, in user-story form:
+  "As a [role], I want [action], so that [benefit]".
+  - Name a concrete role a customer would recognize (VM owner, cluster admin, SRE running a
+    fleet) — never a generic "user".
+  - Name the action and the outcome, not the mechanism.
+  - Each use case must trace to a Section III scenario, or to named existing regression coverage in
+    Test Strategy. If neither covers it, either add the scenario or drop the use case.
+  Example: "As a cluster admin draining a node during business hours, I want running VMs to keep
+  serving traffic, so that planned maintenance does not need a maintenance window." -->
+  - *Value:* [The customer cost of not having this feature]
+  - *Use cases:*
+    - As a [role], I want to [action], so that [benefit]
 
 - [ ] **Testability**
-  <!-- Confirmed requirements are **testable and unambiguous**. -->
-  - *Note any requirements that are unclear or untestable:* [List unclear or untestable requirements, or "None"]
+  <!-- List requirements that are unclear, ambiguous, or untestable and say why — or "None". -->
+  - [Unclear or untestable requirement and why, or "None"]
 
 - [ ] **Acceptance Criteria**
-  <!-- Acceptance criteria are the specific, verifiable conditions that must be met for the feature to be considered complete — they define *how we know it works*.
-  Example: "VM migrates without network downtime exceeding 500ms", "VM deletion is blocked for non-admin users." -->
-  - *List the acceptance criteria:* [Add acceptance criteria here]
-  - *Note any gaps or missing criteria:* [Describe gaps, or "None"]
+  <!-- The specific, verifiable conditions that must be met for the feature to be considered
+  complete — they define *how we know it works*.
+  - One criterion per bullet, each a pass/fail condition an observer can check.
+  - Describe the observable user outcome, not internal system behavior.
+  - Every value claim above ("non-disruptive", "no downtime", "isolated") needs a criterion that
+    could only pass if that claim held. An end-state check that also passes after a disruptive
+    stop-and-restart is not enough.
+  Examples: "VM migrates without network downtime exceeding 500ms", "VM deletion is blocked for
+  non-admin users."
+  Repeat the first bullet per criterion — these are content lines, not new fields. -->
+  - [Acceptance criterion — observable, falsifiable pass/fail condition]
+  - *Gaps or missing criteria:* [Gap or missing criterion, or "None"]
 
 - [ ] **Non-Functional Requirements (NFRs)**
-  <!-- Confirmed coverage for NFRs, including Performance, Security, Usability, Downtime, Connectivity, Monitoring (alerts/metrics), Scalability, Portability (e.g., cloud support), and Docs.-->
-  - *List applicable NFRs and their targets:* [e.g., Resource Efficiency: < 5% CPU overhead on host during feature operation, Security: RBAC enforced, Scalability: supports 500 VMs]
-  - *Note any NFRs not covered and why:* [e.g., "Scalability — no test environment with 500+ VMs available", or "None"]
+  <!-- One bullet per NFR and its target. Cover at minimum: Monitoring, Observability, UI, Usability,
+  Documentation, Performance, Security, Scalability, Portability, Downtime/Connectivity.
+  State explicitly which NFRs do not apply and why — "N/A" alone is not a reason.
+  Example: "Host CPU overhead stays under 5% during the feature operation", "RBAC prevents
+  non-admin users from deleting VMs", "A single cluster supports 500 VMs".
+  Repeat the first line once per NFR, and fill the second once — these are content lines, not new
+  fields. -->
+  - [Applicable NFR and its target]
+  - [NFR not covered and why, or "None"]
 
 #### **2. Feature Limitations**
 
@@ -111,13 +152,15 @@ Example: "Feature does not support IPv6" is a **limitation** (known, confirmed, 
 - No support for ARM64 architecture in this release
 - The feature is incompatible with ZZZ feature
 
-If there are no feature limitations, remove the example items and state: "None — reviewed and confirmed with [Name/Date] that no feature limitations apply for this release." -->
+If there are no feature limitations, replace the placeholder item below with "None — reviewed and
+confirmed with [Name] that no feature limitations apply for this release." and keep its
+`*Sign-off:*` line — only a risk category's supplemental and `Sign-off` lines may be dropped. -->
 
 - **[Feature Limitation 1]**
-  - *Sign-off:* [Name/Date — confirms awareness and acceptance of this limitation]
+  - *Sign-off:* [Name — confirms awareness and acceptance of this limitation]
 
 - **[Feature Limitation 2]**
-  - *Sign-off:* [Name/Date — confirms awareness and acceptance of this limitation]
+  - *Sign-off:* [Name — confirms awareness and acceptance of this limitation]
 
 #### **3. Technology and Design Review**
 
@@ -126,28 +169,33 @@ If there are no feature limitations, remove the example items and state: "None �
 2. Complete the relevant, needed details for the checklist item -->
 
 - [ ] **Developer Handoff/QE Kickoff**
-  <!-- A meeting where Dev/Arch walked QE through the design, architecture, and implementation details. **Critical for identifying untestable aspects early.**-->
-  - *Key takeaways and concerns:* [Summarize key points and concerns]
+  <!-- A meeting where Dev/Arch walked QE through the design, architecture, and implementation details. **Critical for identifying untestable aspects early.**
+  Summarize the actual takeaways and concerns raised — not "meeting held". -->
+  - *Key takeaways and concerns:* [What was learned, and what worries QE]
 
 - [ ] **Technology Challenges**
-  <!-- Identified potential testing challenges related to the underlying technology.-->
-  - *List identified challenges:* [Describe challenges here]
-  - *Impact on testing approach:* [Describe impact on testing]
+  <!-- Identify the potential testing challenges related to the underlying technology, and their
+  impact on how the feature will be tested. -->
+  - [Testing challenge]
+  - *Impact on testing approach:* [How the challenge changes the test approach]
 
 - [ ] **API Extensions**
-  <!-- Review new or modified APIs and their impact on testing. Covers both new tests for new APIs and updates to existing tests for modified APIs.
-  Example: "New VirtualMachineSnapshot API v1beta2 — 3 new endpoints, 1 modified endpoint. Existing snapshot tests need updating." -->
-  - *List new or modified APIs:* [Add APIs here]
-  - *Testing impact:* [Describe testing impact]
+  <!-- Review new or modified user-facing APIs and their impact on testing. Covers both new tests
+  for new APIs and updates to existing tests for modified APIs. No internal component APIs.
+  Example: "New VirtualMachineSnapshot API v1beta2 — 3 new endpoints, 1 modified endpoint.
+  Existing snapshot tests need updating." -->
+  - [New or modified user-facing API]
+  - *Testing impact:* [How the API change affects existing and new tests]
 
 - [ ] **Test Environment Needs**
   <!-- Identified whether special environment setups are needed beyond standard infrastructure.-->
   - *See environment requirements in Section II.3 and testing tools in Section II.3.1*
 
 - [ ] **Topology Considerations**
-  <!-- Evaluated multi-cluster, network topology, and architectural impacts.-->
-  - *Describe topology requirements:* [Add topology requirements here]
-  - *Impact on test design:* [Describe impact on test design]
+  <!-- Cluster and network topology only — not internal resource creation.
+  State the cluster requirements and their impact on test design. -->
+  - [Cluster and network topology required]
+  - *Impact on test design:* [How the topology shapes the test design]
 
 ### **II. Software Test Plan (STP)**
 
