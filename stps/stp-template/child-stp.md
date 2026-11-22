@@ -1,5 +1,22 @@
 # Openshift-virtualization-tests Test plan
 
+<!-- STRUCTURE IS FIXED.
+This child template defines the section structure and field set for a participating SIG's scope. Fill
+each field as it appears; do not add, rename, remove, or reorder sections, checklist items, fields,
+or Section III keys. Repeating a line (another entry criterion, risk entry, or scenario) is content.
+
+The only items you may omit are `Document Conventions (if applicable)` and, in a no-risk category,
+the supplemental and `Sign-off` lines. Every risk category stays, marked `None — [why]` when this SIG
+has no specific risk. A structural change is a separate PR that updates the template it changes and
+the other four copies of the rule (AGENTS.md, docs/stp-guide.md, the `.coderabbit.yaml` structure
+block, the `.pr_agent.toml` instructions) — see Template Structure Compliance in AGENTS.md.
+
+Comments carry guidance only — never a field, key, or value — and are deleted before submitting.
+Replace every placeholder; never delete the field it sits in.
+
+An older child STP is re-shaped onto these lines in the entries it edits; the entries a PR leaves
+alone keep their approved shape. -->
+
 ## **[Feature Title — SIG-Specific Scope] - Quality Engineering Plan**
 
 ### **Metadata & Tracking**

@@ -1,5 +1,32 @@
 # Openshift-virtualization-tests Test plan
 
+<!-- STRUCTURE IS FIXED — read this before you write anything.
+This template defines both the section structure and the field set of an STP. When you write an STP
+from this file, fill each field as it appears: do NOT add, remove, rename, or reorder sections,
+checklist items, metadata fields, fields inside a checklist item, or Section III keys.
+
+The only items you may omit are `Document Conventions (if applicable)` and, in a risk category with
+no risk, the supplemental and `Sign-off` lines. Everything else stays: `Child STPs` is always present
+(single-SIG features write `None — single-SIG feature`) and every risk category is present. Repeating
+a line — another entry criterion, risk entry, scenario, requirement, or criterion — is content, not a
+new field.
+
+If a field is missing or badly shaped, that is a template change and needs a separate PR to this
+repository that updates the template it changes, docs/stp-guide.md, the `Template Structure Compliance`
+section of the AGENTS.md review guide,
+the structure block in `.coderabbit.yaml` and the `extra_instructions` in `.pr_agent.toml` together,
+so the five copies cannot drift. Content with no matching field goes into free prose
+in an existing field, or outside the STP (design doc, VEP, tests repository) — never into a new
+field, label, `Key: value` line, or table invented for one STP.
+
+Guidance lives in the HTML comments; the visible lines are what you fill in. Comments carry no field,
+key, or value of their own, and every comment is deleted before submitting. Replace each placeholder
+with real content — never delete the field it sits in. When a field does not apply, write "None" or
+"N/A" plus the reason in it.
+
+An older STP is re-shaped onto these lines in the entries it edits; the entries a PR leaves alone keep
+their approved shape. -->
+
 ## **[Feature Title/Name] - Quality Engineering Plan**
 
 ### **Metadata & Tracking**
