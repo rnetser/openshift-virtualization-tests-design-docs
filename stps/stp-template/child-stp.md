@@ -96,8 +96,10 @@ If none, state "None — reviewed and confirmed with [Name]." and keep the `*Sig
 <!-- List only this SIG's testing goals. Feature-wide goals belong in the parent STP.
 Order by priority: P0 first, then P1, then P2. Priorities refer to GA. As in the parent STP, an optional phase tag
 (e.g. `[P0][TP]`) marks goals that must also pass at an intermediate phase; phase names come from the parent STP.
-As in the parent STP, each P0 functional goal has a negative or failure-path Testing Goal, or an Out of Scope entry
-with Quality Owner or Product Manager sign-off. -->
+
+Each P0 functional goal needs a negative or failure-path goal next to it — with a matching
+Section III scenario — or the omission documented in Out of Scope with Quality Owner or Product Manager
+sign-off — "considered" alone is insufficient. -->
 
 - **[P0]** [SIG-specific testing goal]
 - **[P1]** [SIG-specific testing goal]
@@ -106,18 +108,20 @@ with Quality Owner or Product Manager sign-off. -->
 **Out of Scope (Testing Scope Exclusions)**
 
 <!-- List items this SIG explicitly will not test. If something is out of scope for the
-entire feature, it belongs in the parent STP — not here. -->
+entire feature, it belongs in the parent STP — not here. If none, state "None — [why]" and keep the
+`*Rationale:*` and `*Sign-off (Quality Owner or Product Manager):*` lines. -->
 
 - **[Item]**
   - *Rationale:* [Why this SIG won't test it]
-  - *Sign-off (Quality Owner or Product Manager):* [Name/Date]
+  - *Sign-off (Quality Owner or Product Manager):* [Name]
 
 **Test Limitations**
 
-<!-- Constraints on this SIG's testing approach. -->
+<!-- Constraints on this SIG's testing approach. If none, state "None — [why]" and keep the
+`*Sign-off:*` line. -->
 
 - **[Test Limitation]**
-  - *Sign-off:* [Name/Date]
+  - *Sign-off:* [Name]
 
 #### **2. Test Strategy**
 
@@ -176,10 +180,10 @@ uncheck and state "Covered by parent STP" or "Covered by [SIG name]". -->
 
 #### **3. Test Environment**
 
-<!-- Only what this SIG needs beyond the parent STP's Test Environment (topology, versions, hardware, storage,
-network, operators, platform, special configurations); the parent's environment applies as-is. -->
+<!-- Covered in the parent STP; state here only what this SIG adds or overrides. If nothing, write
+"None — covered by the parent STP". -->
 
-- [SIG-specific environment needs, or "Covered by the parent STP"]
+- [SIG-specific environment requirement, or "None — covered by the parent STP"]
 
 #### **3.1. Testing Tools & Frameworks**
 
@@ -191,24 +195,75 @@ network, operators, platform, special configurations); the parent's environment 
 
 #### **4. Entry Criteria**
 
-<!-- Only entry criteria specific to this SIG; the parent STP's criteria apply as-is. -->
+<!-- Covered by the parent STP. Add SIG-specific entry criteria below — repeating the line for each
+one is content, not a new field. If none apply, write "None — covered by the parent STP". A child STP
+carries no completion status here: the parent tracks it. -->
 
-- [SIG-specific entry criteria, or "Covered by the parent STP"]
+- [SIG-specific entry criterion, or "None — covered by the parent STP"]
 
 #### **5. Risks**
 
 Feature-wide risks are stated in the parent STP ([Risks](./stp.md#5-risks)) and are not repeated here.
 
-<!-- List only risks specific to this SIG, grouped under the same categories as the parent
-(Timeline/Schedule, Test Coverage, Test Environment, Untestable Aspects, Resource Constraints,
-Dependencies, plus Other if needed). Omit categories with no SIG-specific risk. If there are none, state: "None beyond the parent STP." -->
+<!-- List only risks specific to this SIG, grouped under the same categories as the parent.
+Keep every category below — the field names are the ones the parent template defines.
+A risk is an uncertainty: a constraint that is already true is a Test Limitation, and a testing
+decision already taken is Out of Scope; neither belongs here.
+A category with no SIG-specific risk keeps its Mitigation line, reads "None — [why]", and drops only
+the supplemental and Sign-off lines. When the SIG has no specific risk anywhere, each category still
+gives its own reason in place of [why] — "None — no SIG-specific risk" is not a reason — and no
+Sign-off line is needed. -->
 
-**[Risk Category]**
+**Timeline/Schedule**
 
-- **Risk:** [SIG-specific risk]
-  - **Mitigation:** [Mitigation plan]
-  - *[Category-specific field]:* [Details]
-  - *Sign-off:* [Name/Date]
+- **Risk:** [SIG-specific schedule risk, or "None — [why]"]
+  - **Mitigation:** [Mitigation plan, or the one-line no-risk justification]
+  - *Estimated impact on schedule:* [Delay or schedule impact]
+  - *Sign-off:* [Name]
+
+**Test Coverage**
+
+- **Risk:** [SIG-specific coverage risk, or "None — [why]"]
+  - **Mitigation:** [Mitigation plan, or the one-line no-risk justification]
+  - *Areas with reduced coverage:* [Affected areas]
+  - *Sign-off:* [Name]
+
+**Test Environment**
+
+- **Risk:** [SIG-specific environment risk, or "None — [why]"]
+  - **Mitigation:** [Mitigation plan, or the one-line no-risk justification]
+  - *Missing resources or infrastructure:* [What is unavailable]
+  - *Sign-off:* [Name]
+
+**Untestable Aspects**
+
+- **Risk:** [Untestable aspect for this SIG, or "None — [why]"]
+  - **Mitigation:** [Alternative validation, or the one-line no-risk justification]
+  - *Alternative validation approach:* [Fallback validation]
+  - *Sign-off:* [Name]
+
+**Resource Constraints**
+
+- **Risk:** [SIG-specific resource constraint, or "None — [why]"]
+  - **Mitigation:** [Prioritization plan, or the one-line no-risk justification]
+  - *Current capacity gaps:* [Staffing or skill gaps]
+  - *Sign-off:* [Name]
+
+**Dependencies**
+
+- **Risk:** [SIG-specific dependency, or "None — [why]"]
+  - **Mitigation:** [Coordination plan, or the one-line no-risk justification]
+  - *Dependent teams or components:* [External dependencies]
+  - *Sign-off:* [Name]
+
+**Other**
+
+<!-- A risk that does not fit the six categories above. If none applies, keep this category, write
+"None — [why]" in the `Risk` line, keep the `Mitigation` line, and drop the `Sign-off` line. -->
+
+- **Risk:** [Risk not covered above, or "None — [why]"]
+  - **Mitigation:** [Plan, or the one-line no-risk justification]
+  - *Sign-off:* [Name]
 
 ---
 

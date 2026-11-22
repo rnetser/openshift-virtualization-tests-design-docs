@@ -222,19 +222,22 @@ Each goal should tie back to requirements from Section I and be independently ve
 - **Relevant**: Directly supports feature acceptance criteria and user stories
 - **Verifiable**: Can be objectively confirmed as complete
 
-**Negative paths:** Each P0 functional goal has a negative or failure-path Testing Goal (e.g., "what happens if
-migration fails?", "what if the VM starts during the operation?"), or an Out of Scope entry with Quality Owner or
-Product Manager sign-off — "considered" alone is insufficient. A negative path that is also an Acceptance Criterion
-cannot be moved to Out of Scope: Section III covers it. -->
-
 **Priority Levels:**
 - **P0**: Blocks GA - must be complete before release
 - **P1**: High priority - required for full feature coverage
 - **P2**: Nice-to-have - can be deferred if timeline constraints exist
 
 **Phase tag (optional):** Priorities refer to GA. If a goal or scenario must also pass at an intermediate phase
-(e.g. Tech Preview), add a phase tag: `[P0][TP]` for a goal, `- *Priority:* P0 [TP]` for a scenario. Use the
-phase names from Feature Maturity (from the parent STP for a child STP).
+(e.g. Tech Preview), add a phase tag: `**[P0][TP]**` for a goal, `- *Priority:* P0 [TP]` for a scenario. Use the
+phase names from Feature Maturity (from the parent STP for a child STP). Add it only when the goal really has to
+pass at that earlier phase — a phase tag is not required for a goal that follows the feature to GA.
+
+**Write one goal per bullet, P0 first.** Each P0 functional goal needs a negative or failure-path
+goal next to it — with a matching Section III scenario — covering what happens if the operation
+fails, if the VM starts mid-operation, or if the input is invalid — or, if that negative-path coverage
+is genuinely out of scope, an Out of Scope entry with Quality Owner or Product Manager sign-off
+("considered" alone is insufficient). A negative path that is also an Acceptance Criterion cannot be
+moved to Out of Scope: Section III covers it, or named existing regression coverage in Test Strategy. -->
 
 <!-- **Example - Functional Goals**:
 - **[P0]** Verify VM live migration completes successfully with new network binding plugin across
@@ -258,9 +261,9 @@ phase names from Feature Maturity (from the parent STP for a child STP).
 - **[P1]** Test integration with OpenShift monitoring stack: metrics appear in Prometheus,
   alerts fire correctly in Alertmanager -->
 
-- **[P0]** [List key functional areas to be tested with priority; add a phase tag such as `[P0][TP]` only if needed]
-- **[P1]** [List non-functional requirements to be tested with priority]
-- **[P2]** [Reference specific user stories from Section I with priority]
+- **[P0]** [Functional goal — what is verified and how success is measured; add a phase tag such as `[P0][TP]` only if needed]
+- **[P1]** [Non-functional goal — what is verified and how success is measured]
+- **[P2]** [User-story goal from Section I — what is verified and how success is measured]
 
 **Out of Scope (Testing Scope Exclusions)**
 
@@ -280,15 +283,17 @@ Example: "MultiArch cluster might not be available" is a **risk**. "We will not 
 **Difference from existing coverage:** Areas already covered by existing regression suites or other teams are
 not Out of Scope; record them under Regression Testing in Test Strategy (II.2).
 
-**Note:** Replace examples with your actual out-of-scope items. If there are no items, remove the examples and state: "None — reviewed and confirmed that all supported product functionality will be tested this cycle." -->
+**Note:** Replace the placeholders below with your actual out-of-scope items. If there are none,
+replace the item with "None — reviewed and confirmed that all supported product functionality will
+be tested this cycle." and keep its `*Rationale:*` and `*Sign-off (Quality Owner or Product Manager):*` lines. -->
 
 - **[e.g., Interface settings that are independent of the new network binding (e.g., NIC model)]**
   - *Rationale:* The feature is expected to work with any interface setting. These settings affect the vNIC emulation towards the guest and are agnostic to the binding choice, so no feature-specific test is planned
-  - *Sign-off (Quality Owner or Product Manager):* [Name/Date]
+  - *Sign-off (Quality Owner or Product Manager):* [Name]
 
 - **[e.g., Special guest OS coverage (e.g., Windows)]**
   - *Rationale:* Feature is expected to work with Windows guests but no explicit tests are planned; validation uses Fedora-based guests
-  - *Sign-off (Quality Owner or Product Manager):* [Name/Date]
+  - *Sign-off (Quality Owner or Product Manager):* [Name]
 
 **Test Limitations**
 
@@ -306,13 +311,14 @@ Example: "No bare-metal MultiArch cluster available" is a **test limitation** (Q
 - Performance testing limited to 100 VMs due to lab capacity
 - IPv6 testing constrained to single-stack due to dual-stack cluster unavailability
 
-If there are no test limitations, remove the example items and state: "None — reviewed and confirmed that no test limitations apply for this release." -->
+If there are no test limitations, replace the placeholder item below with "None — reviewed and
+confirmed that no test limitations apply for this release." and keep its `*Sign-off:*` line. -->
 
 - **[Test Limitation 1]**
-  - *Sign-off:* [Name/Date — confirms awareness and acceptance of this limitation]
+  - *Sign-off:* [Name — confirms awareness and acceptance of this limitation]
 
 - **[Test Limitation 2]**
-  - *Sign-off:* [Name/Date — confirms awareness and acceptance of this limitation]
+  - *Sign-off:* [Name — confirms awareness and acceptance of this limitation]
 
 #### **2. Test Strategy**
 
@@ -355,9 +361,14 @@ Example: Strategy says "Performance testing is applicable — we will measure mi
   - *Details:* [ Add details ]
 
 - [ ] **Usability Testing** — Validates user experience and accessibility requirements
-  - Does the feature require a UI? If so, ensure the UI aligns with the requirements (UI/UX consistency, accessibility)
-  - Does the feature expose CLI commands? If so, validate usability and that needed information is available (e.g., status conditions, clear output)
-  - Does the feature trigger backend operations that should be reported to the admin? If so, validate that the user receives clear feedback about the operation and its outcome (e.g., status conditions, events, or notifications indicating success or failure)
+  <!-- Consider, and answer in Details:
+  - Does the feature require a UI? If so, does it align with the requirements (UI/UX consistency,
+    accessibility)?
+  - Does the feature expose CLI commands? If so, validate usability, and that needed information is
+    available (e.g., status conditions, clear output).
+  - Does the feature trigger backend operations that should be reported to the admin? If so,
+    validate that the user receives clear feedback about the operation and its outcome (e.g.,
+    status conditions, events, or notifications indicating success or failure). -->
   - *Details:* [ Add details ]
 
 - [ ] **Monitoring** — Does the feature require metrics and/or alerts?
@@ -366,7 +377,7 @@ Example: Strategy says "Performance testing is applicable — we will measure mi
 **Integration & Compatibility**
 
 - [ ] **Compatibility Testing** — Ensures feature works across supported platforms, versions, and configurations
-  - Does the feature maintain backward compatibility with previous API versions and configurations?
+  <!-- Does the feature maintain backward compatibility with previous API versions and configurations? -->
   - *Details:* [ Add details ]
 
 - [ ] **Upgrade Testing** — Validates upgrade paths from previous versions, data migration, and configuration preservation
@@ -437,63 +448,101 @@ for this feature. **Note:** Only list tools that are **new** or **different** fr
 
 The following conditions must be met before testing can begin:
 
+<!-- Add feature-specific entry criteria as needed, and mark each item [x] when it holds. At STP
+approval time, unchecked environment criteria are expected — but a checked item must not contradict
+a listed dependency or test limitation. When no feature-specific criterion applies, write "None —
+the two criteria above cover this feature" in the third line and mark it [x]: the box records that
+the question was answered, and "None" is a complete answer. -->
+
 - [ ] Requirements and design documents are **approved and merged**
 - [ ] Test environment can be **set up and configured** (see Section II.3 - Test Environment)
-- [ ] [Add feature-specific entry criteria as needed]
+- [ ] [Feature-specific entry criterion, or "None — the two criteria above cover this feature"]
 
 #### **5. Risks**
 
-<!-- Document specific risks for this feature. If a risk category is not applicable, mark as "N/A" with
-justification in mitigation strategy. -->
+<!-- Document specific risks for this feature. A risk is an uncertainty — something that might
+prevent planned testing. A constraint that is already true is a Test Limitation, and a testing
+decision already taken is Out of Scope; neither belongs here. A risk category with no risk keeps its
+Mitigation line plus a one-line justification (not just "N/A") — no Sign-off or supplemental field
+is needed. A category with a real risk needs the full entry, including Sign-off (name). Repeat
+the entry for each risk inside a category.
+
+No-risk form:
+- **Risk:** None — [why no risk applies]
+  - **Mitigation:** Not applicable — [same reason] -->
 
 **Timeline/Schedule**
 
-- **Risk:** [Describe the specific scheduling or deadline risk that could delay testing]
-  - **Mitigation:** [Propose how to adjust scope, priorities, or resources to meet the timeline]
-  - *Estimated impact on schedule:* [Add estimated delay or schedule impact]
-  - *Sign-off:* [Name/Date — confirms awareness and acceptance of this risk]
+<!-- The specific scheduling or deadline risk that could delay testing, and how scope, priorities,
+resources, or the timeline will be adjusted in response. -->
+
+- **Risk:** [Scheduling or deadline risk]
+  - **Mitigation:** [How scope, priorities, or resources adjust to meet the timeline]
+  - *Estimated impact on schedule:* [Delay or schedule impact]
+  - *Sign-off:* [Name — confirms awareness and acceptance of this risk]
 
 **Test Coverage**
 
-- **Risk:** [Describe gaps in test coverage and which areas remain unverified]
-  - **Mitigation:** [Propose alternative testing strategies or acceptance of reduced coverage]
-  - *Areas with reduced coverage:* [List affected areas]
-  - *Sign-off:* [Name/Date — confirms awareness and acceptance of this risk]
+<!-- Coverage that may go unverified if something blocks it, and the alternative strategy or the
+reduction that would be accepted. Confirmed gaps are Test Limitations; agreed exclusions are Out of
+Scope. -->
+
+- **Risk:** [Coverage gap and which areas remain unverified]
+  - **Mitigation:** [Alternative testing strategy, or the accepted reduced coverage]
+  - *Areas with reduced coverage:* [Affected areas]
+  - *Sign-off:* [Name — confirms awareness and acceptance of this risk]
 
 **Test Environment**
 
-- **Risk:** [Describe hardware, software, or infrastructure constraints that limit testing]
-  - **Mitigation:** [Propose how to secure required resources or adapt the test plan]
-  - *Missing resources or infrastructure:* [List what is unavailable]
-  - *Sign-off:* [Name/Date — confirms awareness and acceptance of this risk]
+<!-- Hardware, software, or infrastructure that may limit testing, and how the required resources
+will be secured or the plan adapted. A resource already confirmed unavailable is a Test
+Limitation. -->
+
+- **Risk:** [Environment constraint that limits testing]
+  - **Mitigation:** [How the required resources are secured, or how the plan adapts]
+  - *Missing resources or infrastructure:* [What is unavailable]
+  - *Sign-off:* [Name — confirms awareness and acceptance of this risk]
 
 **Untestable Aspects**
 
-- **Risk:** [Describe scenarios or conditions that cannot be reproduced in a test environment]
-  - **Mitigation:** [Propose alternative validation methods such as smaller-scale tests or production monitoring]
-  - *Alternative validation approach:* [Describe fallback validation method]
-  - *Sign-off:* [Name/Date — confirms awareness and acceptance of this risk]
+<!-- Scenarios or conditions that may not be reproducible in a test environment, and the alternative
+validation method (smaller-scale test, unit test, production monitoring). An aspect already
+confirmed untestable is a Test Limitation. -->
+
+- **Risk:** [Scenario or condition that cannot be reproduced in a test environment]
+  - **Mitigation:** [Alternative validation method]
+  - *Alternative validation approach:* [The fallback validation method]
+  - *Sign-off:* [Name — confirms awareness and acceptance of this risk]
 
 **Resource Constraints**
 
-- **Risk:** [Describe staffing, skill, or capacity limitations affecting test execution]
-  - **Mitigation:** [Propose how to prioritize work, cross-train, or coordinate with other teams]
-  - *Current capacity gaps:* [Describe staffing or skill gaps]
-  - *Sign-off:* [Name/Date — confirms awareness and acceptance of this risk]
+<!-- Staffing, skill, or capacity that may limit test execution, and how work will be prioritized,
+cross-trained, or coordinated. A shortfall already confirmed is a Test Limitation. -->
+
+- **Risk:** [Staffing, skill, or capacity limitation affecting test execution]
+  - **Mitigation:** [How work is prioritized, cross-trained, or coordinated]
+  - *Current capacity gaps:* [Staffing or skill gaps]
+  - *Sign-off:* [Name — confirms awareness and acceptance of this risk]
 
 **Dependencies**
 
-- **Risk:** [Describe external team or component dependencies that could block testing]
-  - **Mitigation:** [Propose coordination plans, fallback strategies, or stub implementations]
-  - *Dependent teams or components:* [List external dependencies]
-  - *Sign-off:* [Name/Date — confirms awareness and acceptance of this risk]
+<!-- External team or component dependencies that could block testing, and the coordination plan,
+fallback strategy, or stub implementation. -->
+
+- **Risk:** [External team or component dependency that could block testing]
+  - **Mitigation:** [Coordination plan, fallback strategy, or stub implementation]
+  - *Dependent teams or components:* [External dependencies]
+  - *Sign-off:* [Name — confirms awareness and acceptance of this risk]
 
 **Other**
 
-- **Risk:** [Describe any additional risks not covered by the categories above]
-  - **Mitigation:** [Propose a specific plan to reduce or eliminate this risk]
-  - *Sign-off:* [Name/Date — confirms awareness and acceptance of this risk]
-  <!-- If more context is needed for this item, add an entry with any relevant details-->
+<!-- Only for risks that do not fit the six categories above. If none apply, keep this category,
+write `None — [why]` in the `Risk` line, keep the `Mitigation` line, and drop the `Sign-off` line — do
+not delete the category. Add any context the entry needs. -->
+
+- **Risk:** [Risk not covered by the categories above, or "None — [why]"]
+  - **Mitigation:** [Specific plan to reduce or eliminate this risk]
+  - *Sign-off:* [Name — confirms awareness and acceptance of this risk]
 
 ---
 

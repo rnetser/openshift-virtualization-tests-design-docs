@@ -168,20 +168,20 @@ rather than requiring it.
   feature's prior execution would produce a different outcome than a baseline reaching the same state.
 
 **Out of Scope:**
-- [ ] Each item has Rationale and a Quality Owner or Product Manager Sign-off with name and date
+- [ ] Each item has Rationale and a Quality Owner or Product Manager Sign-off with a name
 - [ ] Items are decisions QE made (not constraints imposed on QE — those are Test Limitations)
 - [ ] Format per template: `- **Item** / *Rationale:* / *Sign-off (Quality Owner or Product Manager):*`
 - [ ] Items are genuinely out of scope — if already tested elsewhere,
   document as existing coverage, not out of scope
 
 **Test Limitations:**
-- [ ] Each limitation has sign-off: `*Sign-off:* [Name/Date]`
+- [ ] Each limitation has sign-off: `*Sign-off:* [Name]`
 - [ ] Items are constraints imposed on QE (not decisions QE made — those are Out of Scope)
 
 **Common rejection reasons:**
 - Testing goals use implementation language ("verify boot sources are provisioned")
   instead of user language ("deploy a VM from each available boot source")
-- Out of Scope items have `[Name/Date]` placeholder instead of actual sign-offs
+- Out of Scope items have `[Name]` placeholder instead of actual sign-offs
 - Regression tests mixed with new functional tests in Testing Goals
 - Missing priority levels on goals
 - Testing goal names only one configuration dimension (e.g., binding type) when others are required
@@ -241,7 +241,8 @@ rather than requiring it.
 
 - [ ] At minimum: requirements approved + test environment configured
 - [ ] Feature-specific entry criteria added where applicable
-- [ ] Items marked `[x]` when completed, `[ ]` when pending
+- [ ] Items marked `[x]` when completed, `[ ]` when pending; a "None" entry criterion is still
+  marked `[x]` — the box records that the question was answered, not that a condition was met
 
 ### II.4.1 — Cross-Section Consistency
 
@@ -261,11 +262,13 @@ Reviewers must verify these cross-references between sections:
 
 ### II.5 — Risks
 
-- [ ] ALL standard risk categories are addressed — parent STPs only; child STPs follow the Risk bullet under
-  "Multi-SIG Features and Child STPs" in `docs/stp-guide.md` (even if no risk, include Mitigation with brief justification):
+- [ ] ALL standard risk categories are addressed — in a child STP too, every category stays and reads
+  `None — [why]` when the SIG has no risk (see the Risk bullet under "Multi-SIG Features and Child STPs"
+  in `docs/stp-guide.md`); even if no risk, include Mitigation with brief justification:
   Timeline/Schedule, Test Coverage, Test Environment, Untestable Aspects,
   Resource Constraints, Dependencies
-- [ ] "Other" category is included only if risks exist that don't fit the standard categories above
+- [ ] "Other" category is present, holding the risks that don't fit the 6 standard categories —
+  or `None — [why]` when nothing fits it
 - [ ] When a risk exists: full entry required — Risk description, Mitigation strategy, Sign-off,
   and the category-specific supplemental field:
   *Estimated impact on schedule* (Timeline/Schedule),
