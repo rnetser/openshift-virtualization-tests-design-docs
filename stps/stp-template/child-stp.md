@@ -272,10 +272,11 @@ Sign-off line is needed. -->
 <!-- List only this SIG's NEW test scenarios. Each scenario must trace to a Jira requirement.
 Every non-regression Testing Goal above has a matching scenario here. Every SIG-specific Acceptance Criterion is
 covered by a scenario here, or by named existing regression coverage in Test Strategy (II.2). Regression tests are
-documented in Test Strategy (II.2), not in this section. -->
+documented in Test Strategy (II.2), not in this section. The entry shape is the parent's: the tier is inline in
+`Test Scenario`. -->
 
-- **[Jira-ID]** — As a [role], I want [action] so that [benefit]
-  - *Test Scenario:* [Tier 1/2/3] [Description]
+- **[Jira-ID]** — As a [role], I want [action], so that [benefit]
+  - *Test Scenario:* [Tier N] [Description, with an observable pass criterion]
   - *Priority:* [P0/P1/P2, with an optional phase tag as in the parent STP]
 
 ---

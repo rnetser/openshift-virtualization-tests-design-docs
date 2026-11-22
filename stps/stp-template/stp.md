@@ -548,42 +548,45 @@ not delete the category. Add any context the entry needs. -->
 
 ### **III. Test Scenarios & Traceability**
 
-<!-- This section links D/S requirements to test coverage, enabling reviewers to verify all requirements are tested.
+<!-- This section links D/S requirements to test coverage, enabling reviewers to verify all
+requirements are tested.
 
-**What goes here:** New test scenarios specific to this feature. Each scenario should trace to a D/S Jira requirement.
-**Granularity:** If one scenario can fail while another passes, they should be separate items. For example:
-- Different conditions (VMs with feature X vs without) → separate scenarios
-- Feature Gate enable/disable → separate scenarios (different expected behavior)
-- Multiple alerts → separate if different trigger conditions, group if same flow
-**Traceability:** Every non-regression Testing Goal (II.1) has a matching scenario here; regression goals refer
-to their coverage in Test Strategy (II.2). Every Acceptance Criterion (I.1) is covered by a scenario here, or by
-named existing regression coverage in Test Strategy (II.2).
-**What does NOT go here:** Regression tests (covered in Test Strategy). -->
+**What goes here:** New test scenarios specific to this feature. Each scenario traces to a D/S Jira
+requirement. **Granularity:** if one scenario can fail while another passes, they are separate
+entries (VMs with feature X vs without, feature gate on/off, alerts with different trigger
+conditions). **What does NOT go here:** regression tests (covered in Test Strategy).
 
-<!-- **Requirement ID:**
-- Use Jira issue key (e.g., CNV-12345)
+The entry shape is fixed — the Jira key in bold, the requirement as a user story with a concrete
+role and a benefit, then exactly two keys: `Test Scenario` (tier inline as `[Tier N]`) and
+`Priority`. No generic "user". The same inline tier is used in a child STP.
 
-**Requirement Summary:** Brief description from the Jira issue (user story format preferred) -->
+Every non-regression Testing Goal (II.1) has a matching scenario here; a regression goal refers to
+its coverage in Test Strategy (II.2). Every Acceptance Criterion (I.1) is covered by a scenario here,
+or by named existing regression coverage in Test Strategy (II.2).
 
-- **[Jira-123]** — As a user...
+Copy the entry below once per scenario. The bracketed text is replaced — except the labels that keep
+their brackets: `[Jira-ID]` takes the real key, `[Tier N]` the tier number. `[role]`, `[action]`,
+`[benefit]`, `[P0/P1/P2]` and the scenario text are replaced without brackets.
+
+- **[Jira-123]** — As a cluster admin, I want to create a VM with feature X, so that VM workloads start without a separate configuration step
   - *Test Scenario:* [Tier 1] Verify VM can be created with new feature X
   - *Priority:* P0
-
-- **[Jira-124]** — As an admin...
+- **[Jira-124]** — As a VM owner, I want the feature X API to reject invalid input, so that a bad request fails fast instead of corrupting a VM
   - *Test Scenario:* [Tier 1] Verify API for feature X rejects invalid field values
   - *Priority:* P0
-
-- **[Jira-125]** — As an admin user, I want to block non-admin users from deleting VMs
+- **[Jira-125]** — As a cluster admin, I want non-admin users blocked from deleting VMs, so that a single tenant cannot remove another tenant's workload
   - *Test Scenario:* [Tier 2] Verify non-admin user cannot delete a VM
   - *Priority:* P1
-
-- **[Jira-126]** — As a cluster admin...
+- **[Jira-126]** — As a cluster admin, I want an upgrade to preserve feature X state, so that maintenance does not require reconfiguring running VMs
   - *Test Scenario:* [Tier 2] Verify upgrade from version X to Y preserves feature state
   - *Priority:* P2
-
-- **[Jira-127]** — As a Windows VM user...
+- **[Jira-127]** — As a Windows VM owner, I want feature X to work on NTFS guests, so that existing Windows workloads can adopt the feature
   - *Test Scenario:* [Tier 3] Verify feature X works on Windows guest with NTFS filesystem
-  - *Priority:* P1
+  - *Priority:* P1 -->
+
+- **[Jira-ID]** — As a [role], I want [action], so that [benefit]
+  - *Test Scenario:* [Tier N] [scenario, with an observable pass criterion]
+  - *Priority:* [P0/P1/P2]
 
 ---
 
